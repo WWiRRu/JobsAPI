@@ -1,0 +1,22 @@
+{
+  "name": "jwt",
+  "version": "1.0.0",
+  "main": "index.mjs",
+  "scripts": {
+    "dev": "nodemon --env-file=.env index.mjs",
+    "start": "node index.mjs"
+  },
+  "type": "module",
+  "author": "WWiRRu",
+  "license": "ISC",
+  "description": "Cours JWT",
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
