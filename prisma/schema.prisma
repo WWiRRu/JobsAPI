@@ -1,0 +1,35 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Users {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(50)
+  password String @db.VarChar(255)
+  email    String @unique @db.VarChar(255)
+
+  @@map("users")
+}
+
+model Jobs {
+  id        Int      @id @default(autoincrement())
+  company   String   @db.VarChar(50)
+  position  String   @db.VarChar(100)
+  status    String   @db.VarChar(20)
+  createdBy Int      @map("createdBy")
+  createdAt DateTime @default(now()) @map("createdAt")
+  updatedAt DateTime @updatedAt @map("updatedAt")
+
+  @@map("jobs")
+}
+
+enum JobStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
